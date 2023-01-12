@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
 
-        changeFrame(mainBinding, HomeFragment.newInstance("","")) //Initialize Frame
+        changeFrame(mainBinding, HomeFragment.newInstance("d","")) //Initialize Frame
 
         mainBinding.selectFragmentBottomNavi.run {
             setOnItemSelectedListener {
