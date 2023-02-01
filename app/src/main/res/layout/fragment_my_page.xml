@@ -4,6 +4,252 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.account.MyPageFragment"
-    android:background="@color/gray_first">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/my_page_constraint1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/my_page_back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00ff0000"
+                android:padding="10dp"
+                android:src="@drawable/back_vector_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/my_page_setting_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00ff0000"
+                android:padding="10dp"
+                android:src="@drawable/settings_vector_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/my_page_constraint2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/my_page_constraint1"
+            android:background="@drawable/border_bottom2">
+
+            <ImageView
+                android:id="@+id/my_page_profile_image"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/gray_round"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                android:paddingTop="10dp"
+                android:text="Nick Name"
+                android:textColor="@color/text_first"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/my_page_profile_image"
+                app:layout_constraintTop_toTopOf="@id/my_page_profile_image" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                android:paddingBottom="12dp"
+                android:text="user email"
+                android:textColor="@color/text_third"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/my_page_profile_image"
+                app:layout_constraintStart_toEndOf="@id/my_page_profile_image" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="85dp"
+                android:layout_height="35dp"
+                android:background="@drawable/radio_button_selector"
+                android:text="프로필 수정"
+                android:textColor="@color/text_first"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/my_page_profile_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/my_page_profile_image" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="328dp"
+                android:layout_height="44dp"
+                android:background="@drawable/button_fill_selector"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/my_page_profile_image"
+                android:drawableEnd="@drawable/next_vector_image"
+                android:text="내가 보유중인 농장"
+                android:textColor="@color/white"
+                android:textAlignment="textStart"
+                android:paddingStart="16dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/my_page_constraint2"
+            android:weightSum="5"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:weightSum="6"
+                android:paddingTop="18dp"
+                android:paddingBottom="18dp"
+                android:background="@drawable/border_bottom2">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="20dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="5"
+                    android:text="찜 목록"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_first" />
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00ff0000"
+                    android:src="@drawable/next_vector_image" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:weightSum="6"
+                android:paddingTop="18dp"
+                android:paddingBottom="18dp"
+                android:background="@drawable/border_bottom2">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="20dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="5"
+                    android:text="대여중인 농장"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_first" />
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00ff0000"
+                    android:src="@drawable/next_vector_image" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:weightSum="6"
+                android:paddingTop="18dp"
+                android:paddingBottom="18dp"
+                android:background="@drawable/border_bottom2">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="20dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="5"
+                    android:text="농장주 등록"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_first" />
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00ff0000"
+                    android:src="@drawable/next_vector_image" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:weightSum="6"
+                android:paddingTop="18dp"
+                android:paddingBottom="18dp"
+                android:background="@drawable/border_bottom2">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="20dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="5"
+                    android:text="개인정보 처리 방침"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_first" />
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00ff0000"
+                    android:src="@drawable/next_vector_image" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:weightSum="6"
+                android:paddingTop="18dp"
+                android:paddingBottom="18dp"
+                android:background="@drawable/border_bottom2">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="20dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="5"
+                    android:text="자주 묻는 질문"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_first" />
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00ff0000"
+                    android:src="@drawable/next_vector_image" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 </FrameLayout>
