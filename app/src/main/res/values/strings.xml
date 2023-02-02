@@ -13,4 +13,12 @@
     <string name="search_bar_hint_text">닉네임 또는 농장 이름을 입력하세요.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="example_address">서울특별시 강동구 고덕1동 479</string>
+    <string name="example_farm_title">고덕 주말 농장</string>
+    <string name="example_farm_size">4.5평 (15m^2)</string>
+    <string name="example_farm_price">100,000원</string>
+    <string name="example_farm_detail_views">최근 7일 조회수 100</string>
+    <string name="request">분양 신청</string>
+    <string name="farm_detail_description_title">상세 설명</string>
+    <string name="example_farm_description">자유롭게 원하시는 모종 심으시면 됩니다.\n매주 체크하기 힘드시면 제가 따로 물주기는 해드릴 수 있으니, \n보시고 편하게 문의 주세요 !</string>
 </resources>
