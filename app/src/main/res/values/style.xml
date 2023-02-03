@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomChipStyle_farm" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="strokeColor">@color/farm_choice_chip_stroke</item>
+        <item name="chipBackgroundColor">@color/farm_choice_chip_bg</item>
+        <item name="android:textColor">@color/farm_choice_chip_text</item>
+        <item name="fontFamily">@style/Body3Med</item>
+    </style>
+</resources>

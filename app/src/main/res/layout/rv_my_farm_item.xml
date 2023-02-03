@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        >
+
+        <ImageView
+            android:id="@+id/rv_item_img"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/round_background_border"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="17dp"
+            android:layout_marginStart="16dp"
+            android:scaleType="centerCrop"
+            android:src="@color/main_hover"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/rv_item_img"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:layout_marginTop="31dp"
+            android:layout_marginStart="13dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/rv_item_title"
+                style="@style/Body1Bold"
+                android:layout_gravity="left"
+                android:textColor="@color/text_first"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="고덕 농장 1구획"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/Body3Med"
+                    android:textColor="@color/text_second"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="기간  "/>
+                <TextView
+                    android:id="@+id/rv_item_start_day"
+                    style="@style/Body3Med"
+                    android:textColor="@color/text_second"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2022.12.25."/>
+                <TextView
+                    style="@style/Body3Med"
+                    android:textColor="@color/text_second"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" ~ "/>
+                <TextView
+                    android:id="@+id/rv_item_end_day"
+                    style="@style/Body3Med"
+                    android:textColor="@color/text_second"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2023.01.07."/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btn_next"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/next_vector_image"
+            app:layout_constraintStart_toEndOf="@id/rv_item_img"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="29dp"
+            android:layout_marginStart="234dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
