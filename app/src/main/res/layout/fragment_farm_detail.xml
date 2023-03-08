@@ -202,7 +202,7 @@
                 android:layout_height="48dp"
                 android:button="@null"
                 android:src="@drawable/calendar_vector_image"
-                android:background="@drawable/farm_detail_request_background"
+                android:background="@drawable/main_button_color_selector"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
