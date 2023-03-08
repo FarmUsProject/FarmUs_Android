@@ -1,0 +1,52 @@
+{
+  "farm_list": [
+    {
+      "name": "행복한 농장",
+      "owner": "farmer@gmail.com",
+      "term": "2023/12/05 - 2023/12/31",
+      "price": 100000,
+      "squaredMeters": 15,
+      "location": "ㅇㅇ도 ㅇㅇ시 ㅇㅇ구 ㅇㅇ동",
+      "description": "각종 채소 재배",
+      "picture_url": "https://user-images.githubusercontent.com/86971052/223704866-fa17eeff-77a5-42f3-9c9f-edc9a1464ab3.png",
+      "category": "채소, 강원도",
+      "tag": "강원도, 배추, 상추"
+    },
+    {
+      "name": "가평 힐링가든",
+      "owner": "farmer@gmail.com",
+      "term": "2023/12/05 - 2023/12/31",
+      "price": 90000,
+      "squaredMeters": 15,
+      "location": "ㅇㅇ도 ㅇㅇ시 ㅇㅇ구 ㅇㅇ동",
+      "description": "각종 채소 재배",
+      "picture_url": "https://user-images.githubusercontent.com/86971052/223704876-570bcec5-0c01-49b7-9ca4-98307420c220.png",
+      "category": "채소, 강원도",
+      "tag": "강원도, 배추, 상추"
+    },
+    {
+      "name": "서울 유일 농장",
+      "owner": "farmer@gmail.com",
+      "term": "2023/12/05 - 2023/12/31",
+      "price": 110000,
+      "squaredMeters": 15,
+      "location": "ㅇㅇ도 ㅇㅇ시 ㅇㅇ구 ㅇㅇ동",
+      "description": "각종 채소 재배",
+      "picture_url": "https://user-images.githubusercontent.com/86971052/223704881-6df42cd5-27fb-4bb6-8423-86135aef873f.png",
+      "category": "채소, 강원도",
+      "tag": "강원도, 배추, 상추"
+    },
+    {
+      "name": "과천 희망농장",
+      "owner": "farmer@gmail.com",
+      "term": "2023/12/05 - 2023/12/31",
+      "price": 90000,
+      "squaredMeters": 15,
+      "location": "ㅇㅇ도 ㅇㅇ시 ㅇㅇ구 ㅇㅇ동",
+      "description": "각종 채소 재배",
+      "picture_url": "https://user-images.githubusercontent.com/86971052/223704886-40764d73-fbe8-4b91-b0cf-28e1e55a4e09.png",
+      "category": "채소, 강원도",
+      "tag": "강원도, 배추, 상추"
+    }
+  ]
+}
