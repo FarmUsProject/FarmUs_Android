@@ -11,7 +11,16 @@
     <string name="navi_mypage">마이페이지</string>
     <string name="navi_chat">채팅</string>
     <string name="search_bar_hint_text">닉네임 또는 농장 이름을 입력하세요.</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- TODO: link-failed 해결을 위한 임시 텍스트 -->
+    <string name="copy_my_id"> </string>
+    <string name="click_to_singup"> </string>
+    <string name="terms_payment"> </string>
+    <string name="term_uses"> </string>
+    <string name="terms_location"> </string>
+    <string name="term_personal_info"> </string>
 
 </resources>

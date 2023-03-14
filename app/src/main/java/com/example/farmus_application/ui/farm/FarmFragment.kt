@@ -55,7 +55,7 @@ class FarmFragment : Fragment() {
         val tabLayout = farmBinding.tabLayout
 
 
-        viewPager.adapter = ViewPagerAdapter(childFragmentManager,lifecycle)
+        //viewPager.adapter = ViewPagerAdapter(childFragmentManager,lifecycle)
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = tabTitleArray[position]
