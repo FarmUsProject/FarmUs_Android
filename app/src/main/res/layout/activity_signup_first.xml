@@ -37,6 +37,57 @@
             app:layout_constraintStart_toStartOf="parent">
         </View>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/gray_second"
+            app:layout_constraintTop_toBottomOf="@+id/signup_id_toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+        </View>
+
+        <View
+            android:layout_width="60dp"
+            android:layout_height="2dp"
+            android:background="@color/main_green"
+            app:layout_constraintTop_toBottomOf="@+id/signup_id_toolbar"
+            app:layout_constraintStart_toStartOf="parent">
+        </View>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/gray_second"
+            app:layout_constraintTop_toBottomOf="@+id/signup_id_toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+        </View>
+
+        <View
+            android:layout_width="60dp"
+            android:layout_height="2dp"
+            android:background="@color/main_green"
+            app:layout_constraintTop_toBottomOf="@+id/signup_id_toolbar"
+            app:layout_constraintStart_toStartOf="parent">
+        </View>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/gray_second"
+            app:layout_constraintTop_toBottomOf="@+id/signup_id_toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+        </View>
+
+        <View
+            android:layout_width="60dp"
+            android:layout_height="2dp"
+            android:background="@color/main_green"
+            app:layout_constraintTop_toBottomOf="@+id/signup_id_toolbar"
+            app:layout_constraintStart_toStartOf="parent">
+        </View>
+
         <TextView
             android:id="@+id/signup_id_title"
             android:layout_width="wrap_content"

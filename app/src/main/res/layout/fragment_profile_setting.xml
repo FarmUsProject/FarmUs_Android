@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.account.ProfileSettingFragment">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <!--전체화면 레이아웃-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <include
+                    android:id="@+id/tool_bar"
+                    layout="@layout/toolbar_with_title"/>
+
+                <ImageView
+                    android:id="@+id/section_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/gray_2"
+                    app:layout_constraintBottom_toBottomOf="@id/tool_bar"/>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_view_profile_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="40dp"
+                        android:layout_marginVertical="25dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tool_bar"
+                        >
+
+                        <ImageView
+                            android:id="@+id/profile_image"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:background="@color/gray_2"/>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <ImageView
+                        android:id="@+id/btn_profile_image_setting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/btn_profile_image_setting"
+                        android:layout_marginEnd="-9dp"
+                        android:translationZ="10dp"
+                        app:layout_constraintEnd_toEndOf="@id/card_view_profile_image"
+                        app:layout_constraintBottom_toBottomOf="@id/card_view_profile_image"/>
+
+                <LinearLayout
+                    android:id="@+id/layout_profile_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/card_view_profile_image"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="35dp"
+                    android:orientation="vertical"
+                    >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/txt_nickname"
+                            style="@style/Body2Reg"
+                            android:textColor="@color/text_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="닉네임"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@id/txt_nickname"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edittext_nickname"
+                                style="@style/Body2Reg"
+                                android:textColor="@color/text_3"
+                                android:layout_width="0dp"
+                                android:layout_height="44dp"
+                                android:paddingStart="12dp"
+                                android:layout_weight="1"
+                                android:hint="내용입력"
+                                android:singleLine="true"
+                                android:textColorHint="@color/text_3"
+                                android:layout_marginTop="6dp"
+                                android:background="@drawable/longer_text_field__disabled_vector_image"
+                                />
+
+                            <TextView
+                                android:id="@+id/btn_change_nickname"
+                                style="@style/Body2Reg"
+                                android:textColor="@color/text_1"
+                                android:layout_width="48dp"
+                                android:layout_height="44dp"
+                                android:text="변경"
+                                android:gravity="center"
+                                android:layout_marginTop="6dp"
+                                android:background="@drawable/change_btn_vector_image"
+                                android:layout_marginStart="13dp"/>
+
+                        </LinearLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="38dp">
+
+                        <TextView
+                            android:id="@+id/txt_introduction"
+                            style="@style/Body2Reg"
+                            android:textColor="@color/text_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="한줄 소개"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edittext_introduction"
+                            style="@style/Body2Reg"
+                            android:textColor="@color/text_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/longer_text_field__default_vector_image"
+                            android:hint="내용 입력"
+                            android:singleLine="true"
+                            android:paddingStart="12dp"
+                            android:textColorHint="@color/gray_1"
+                            app:layout_constraintTop_toBottomOf="@id/txt_introduction"
+                            android:maxLength="30"/>
+
+
+                        <TextView
+                            android:id="@+id/edittext_count"
+                            style="@style/Body2Reg"
+                            android:textColor="@color/text_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0/30"
+                            android:layout_marginEnd="8dp"
+                            app:layout_constraintEnd_toEndOf="@id/edittext_introduction"
+                            app:layout_constraintBottom_toBottomOf="@id/edittext_introduction"
+                            app:layout_constraintTop_toTopOf="@id/edittext_introduction"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="38dp">
+
+                        <TextView
+                            android:id="@+id/txt_id"
+                            style="@style/Body2Reg"
+                            android:textColor="@color/text_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="아이디"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edittext_id"
+                            style="@style/Body2Reg"
+                            android:textColor="@color/text_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:paddingStart="12dp"
+                            android:hint="내용입력"
+                            android:singleLine="true"
+                            android:textColorHint="@color/text_3"
+                            android:layout_marginTop="6dp"
+                            android:background="@drawable/longer_text_field__disabled_vector_image"
+                            app:layout_constraintTop_toBottomOf="@id/txt_id"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="38dp">
+
+                        <TextView
+                            android:id="@+id/txt_name"
+                            style="@style/Body2Reg"
+                            android:textColor="@color/text_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="이름"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@id/txt_name"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edittext_name"
+                                style="@style/Body2Reg"
+                                android:textColor="@color/text_3"
+                                android:layout_width="0dp"
+                                android:layout_height="44dp"
+                                android:paddingStart="12dp"
+                                android:layout_weight="1"
+                                android:hint="내용입력"
+                                android:singleLine="true"
+                                android:textColorHint="@color/text_3"
+                                android:layout_marginTop="6dp"
+                                android:background="@drawable/longer_text_field__disabled_vector_image"
+                                />
+
+                            <TextView
+                                android:id="@+id/btn_change_name"
+                                style="@style/Body2Reg"
+                                android:textColor="@color/text_1"
+                                android:layout_width="48dp"
+                                android:layout_height="44dp"
+                                android:text="변경"
+                                android:gravity="center"
+                                android:layout_marginTop="6dp"
+                                android:background="@drawable/change_btn_vector_image"
+                                android:layout_marginStart="13dp"/>
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="38dp">
+
+                        <TextView
+                            android:id="@+id/txt_password"
+                            style="@style/Body2Reg"
+                            android:textColor="@color/text_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="비밀번호"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@id/txt_password"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edittext_password"
+                                style="@style/Body2Reg"
+                                android:textColor="@color/text_3"
+                                android:layout_width="0dp"
+                                android:layout_height="44dp"
+                                android:paddingStart="12dp"
+                                android:layout_weight="1"
+                                android:hint="내용입력"
+                                android:singleLine="true"
+                                android:textColorHint="@color/text_3"
+                                android:layout_marginTop="6dp"
+                                android:background="@drawable/longer_text_field__disabled_vector_image"
+                                />
+
+                            <TextView
+                                android:id="@+id/btn_change_password"
+                                style="@style/Body2Reg"
+                                android:textColor="@color/text_1"
+                                android:layout_width="48dp"
+                                android:layout_height="44dp"
+                                android:text="변경"
+                                android:gravity="center"
+                                android:layout_marginTop="6dp"
+                                android:background="@drawable/change_btn_vector_image"
+                                android:layout_marginStart="13dp"/>
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="38dp">
+
+                        <TextView
+                            android:id="@+id/txt_phoneNumber"
+                            style="@style/Body2Reg"
+                            android:textColor="@color/text_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="휴대폰 번호"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@id/txt_phoneNumber"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edittext_phoneNumber"
+                                style="@style/Body2Reg"
+                                android:textColor="@color/text_3"
+                                android:layout_width="0dp"
+                                android:layout_height="44dp"
+                                android:paddingStart="12dp"
+                                android:layout_weight="1"
+                                android:hint="내용입력"
+                                android:singleLine="true"
+                                android:textColorHint="@color/text_3"
+                                android:layout_marginTop="6dp"
+                                android:background="@drawable/longer_text_field__disabled_vector_image"
+                                />
+
+                            <TextView
+                                android:id="@+id/btn_change_phoneNumber"
+                                style="@style/Body2Reg"
+                                android:textColor="@color/text_1"
+                                android:layout_width="48dp"
+                                android:layout_height="44dp"
+                                android:text="변경"
+                                android:gravity="center"
+                                android:layout_marginTop="6dp"
+                                android:background="@drawable/change_btn_vector_image"
+                                android:layout_marginStart="13dp"/>
+
+                        </LinearLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+</layout>

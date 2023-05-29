@@ -23,9 +23,8 @@
 
     <string name="copy_my_id">아이디 복사하기</string>
     <string name="click_to_singup"><u>회원가입</u></string>
-    <string name="terms_payment"> </string>
-    <string name="term_uses"> </string>
-    <string name="terms_location"> </string>
-    <string name="term_personal_info"> </string>
+  
+    <string name="sign_out_kr">탈퇴하기</string>
+    <string name="logout_kr">로그아웃</string>
 
 </resources>

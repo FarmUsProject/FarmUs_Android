@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.account.EnrollFarmerFragment">
+
+        <include
+            android:id="@+id/tool_bar"
+            layout="@layout/toolbar_without_title"/>
+
+        <TextView
+            android:id="@+id/enroll_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="농장주가 되기 위해\n아래의 동의가 필요합니다."
+            android:fontFamily="@font/line_seed_kr_bd"
+            android:textSize="22sp"
+            android:textColor="@color/text_1"
+            app:layout_constraintTop_toBottomOf="@id/tool_bar"
+            android:layout_marginTop="48dp"
+            android:layout_marginHorizontal="16dp"/>
+
+        <LinearLayout
+            android:id="@+id/checkbox_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            app:layout_constraintTop_toBottomOf="@id/enroll_text"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp">
+
+                <CheckBox
+                    android:id="@+id/checkbox_agree_all"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:button="@drawable/check_line_white_vector_image"
+                    android:buttonTint="@color/white"
+                    android:background="@drawable/check_box_selector"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                    style="@style/Body2Med"
+                    android:textColor="@color/text_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="모두 동의합니다."
+                    android:layout_marginStart="12dp"
+                    app:layout_constraintStart_toEndOf="@id/checkbox_agree_all"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/gray_2"
+                android:layout_marginTop="17dp"
+                android:layout_marginBottom="17dp"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp">
+
+                <CheckBox
+                    android:id="@+id/checkbox_TOS"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:button="@drawable/check_line_white_vector_image"
+                    android:buttonTint="@color/white"
+                    android:background="@drawable/check_box_selector"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                    style="@style/Body2Reg"
+                    android:textColor="@color/text_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="[필수] 이용 약관"
+                    android:layout_marginStart="12dp"
+                    app:layout_constraintStart_toEndOf="@id/checkbox_TOS"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/next_vector_image"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:backgroundTint="@color/gray_1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="13dp">
+
+                <CheckBox
+                    android:id="@+id/checkbox_privacy"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:button="@drawable/check_line_white_vector_image"
+                    android:buttonTint="@color/white"
+                    android:background="@drawable/check_box_selector"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                    style="@style/Body2Reg"
+                    android:textColor="@color/text_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="[필수] 개인정보 처리방침"
+                    android:layout_marginStart="12dp"
+                    app:layout_constraintStart_toEndOf="@id/checkbox_privacy"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/next_vector_image"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:backgroundTint="@color/gray_1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btn_agree"
+            style="@style/Body1Med"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="동의하고 진행하기"
+            android:textColor="@color/text_button_text_color"
+            android:background="@drawable/text_button_background"
+            android:gravity="center"
+            android:paddingVertical="14dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="67dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
