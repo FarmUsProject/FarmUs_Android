@@ -1,6 +1,8 @@
 package com.farm.farmus_application.ui.message
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.nfc.Tag
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -11,12 +13,27 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.PopupMenu
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.farm.farmus_application.MyApplication
 import com.farm.farmus_application.R
 import com.farm.farmus_application.databinding.FragmentClientChatBinding
+import com.farm.farmus_application.di.AppModule
 import com.farm.farmus_application.repository.UserPrefsStorage
 import com.farm.farmus_application.ui.MainActivity
 import com.farm.farmus_application.ui.message.adapter.ClientChatRVAdapter
 import com.farm.farmus_application.utilities.JWTUtils
+import io.socket.client.IO
+import io.socket.client.Socket
+import io.socket.emitter.Emitter
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.json.JSONException
+import org.json.JSONObject
+import java.net.URISyntaxException
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 
 class ClientChatFragment : Fragment() {
@@ -25,24 +42,28 @@ class ClientChatFragment : Fragment() {
     private val binding get() = _binding!!
     private val jwtToken = UserPrefsStorage.accessToken
     private val name = JWTUtils.decoded(jwtToken.toString())?.tokenBody?.name ?: ""
-
+    private var mSocket: Socket? = null
+    private val onMessageReceived = Emitter.Listener { args ->
+        Log.d(TAG, "update 이벤트 수신처리")
+    }
     // TODO : 임시 데이터. 사용 예시
     private val chatMessages = ArrayList<ChatMessage>().apply {
-        // senderId 와 receivedId가 "0", "0"일 때는 날짜 업데이트를 하게 구현되어있음(rvAdapter와 함께 봐야함)
-        // 기능 구현시 그 부분을 고려해서 수정필요.
-//        add(ChatMessage("0", "0", "2023년 01월 08일", "00:00"))
-
-        // 일반 대화 임시 데이터
         add(ChatMessage(name, "내가 보냄", "오후 2:16"))
         add(ChatMessage("kong", "상대방이 보냄", "오후 3:10"))
     }
     private lateinit var clientChatRVAdapter: ClientChatRVAdapter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        settingSocket()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentClientChatBinding.inflate(inflater, container, false)
+        mSocket?.connect()
         return binding.root
     }
 
@@ -58,12 +79,53 @@ class ClientChatFragment : Fragment() {
         _binding = null
     }
 
+    private fun settingSocket() {
+        try {
+            mSocket = IO.socket("http://118.67.135.247:80")
+            Log.d(TAG,"${mSocket?.id()}")
+        } catch (e: URISyntaxException) {
+            Log.d(TAG,"${e.message}")
+        }
+//        CoroutineScope(Dispatchers.IO).launch {
+//            try {
+//                mSocket = IO.socket("https://www.farmus.kro.kr")
+//                mSocket.connect()
+//            } catch (e: Exception) {
+//                withContext(Dispatchers.Main) {
+//                    Log.d(TAG,"${e.message}")
+//                }
+//            }
+//        }
+//        mSocket.on("update", onMessageReceived)
+    }
+
     private fun init() {
+        initSendButton()
         initRecyclerView()
         initBackButton()
         initMoreButton()
         initBottomSheet()
         // TODO: 추가할 초기화가 있다면 초기화
+    }
+
+    private fun initSendButton() {
+
+        binding.commonChatLayout.buttonSendMsg.setOnClickListener {
+            // sendMessage()
+            // 클라이언트에서 메시지를 서버로 전송
+            val message = binding.commonChatLayout.edittextSendMsg.text.toString()
+            val name = name
+            val data = JSONObject().apply {
+//                put("name", name)
+//                put("message", message)
+                put("type","message")
+                put("message",message)
+            }
+            Log.d(TAG,"${mSocket?.connected()}")
+//            mSocket.emit("send", data)
+            clientChatRVAdapter.addMessage(ChatMessage(name,message,"00:00"))
+            binding.commonChatLayout.edittextSendMsg.text.clear()
+        }
     }
 
     private fun initRecyclerView() {
@@ -88,13 +150,13 @@ class ClientChatFragment : Fragment() {
     private fun initBackButton() {
         binding.toolbarLayout.toolbarWithTitleAndMoreBackButton.setOnClickListener {
             hideKeyboard()
-            
+
             // keyboard를 숨긴 후에 back되도록 (keyboard hide가 안된 것이 이전 화면에 영향을 줌)
             it.postDelayed({
                 activity?.supportFragmentManager?.apply {
                     beginTransaction().remove(this@ClientChatFragment).commit()
                     popBackStack()
-                }  
+                }
             }, 100) // 100초 뒤에 처리됨
         }
     }
@@ -118,6 +180,21 @@ class ClientChatFragment : Fragment() {
     private fun hideKeyboard() {
         val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
         imm?.hideSoftInputFromWindow(view?.windowToken, 0)
+    }
+
+
+    private fun settingTime() {
+        val currentTime = System.currentTimeMillis()
+        val dateFormat = SimpleDateFormat("yyyy년 MM월 dd일", Locale.KOREA)
+        val timeFormat = SimpleDateFormat("aa hh:mm", Locale.KOREA)
+        println(dateFormat.format(currentTime))
+        println(timeFormat.format(currentTime))
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        // Socket 연결 해제
+        mSocket?.disconnect()
     }
 
 }
