@@ -6,7 +6,7 @@
     <data>
         <variable
             name="unAvailableDate"
-            type="com.farm.farmus_application.model.reserve.unbookable.UnBookableResult" />
+            type="com.farm.farmus_application.model.farm.unavailableDate.UnavailableDateInfo" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,7 +21,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:textColor="@color/text_1"
-            android:text="@{unAvailableDate.startAt}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/unavailableClearButton"
             app:layout_constraintBottom_toBottomOf="@id/unavailableClearButton"

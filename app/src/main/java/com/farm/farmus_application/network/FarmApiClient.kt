@@ -8,6 +8,10 @@ import com.farm.farmus_application.model.farm.phone.PhoneNumberRes
 import com.farm.farmus_application.model.farm.postings.PostingsRes
 import com.farm.farmus_application.model.farm.register.RegisterRes
 import com.farm.farmus_application.model.farm.search.SearchedRes
+import com.farm.farmus_application.model.farm.unavailableDate.DeleteDateRes
+import com.farm.farmus_application.model.farm.unavailableDate.RetrieveDateRes
+import com.farm.farmus_application.model.farm.unavailableDate.UnavailableDateAdditionReq
+import com.farm.farmus_application.model.farm.unavailableDate.UnavailaleDateAdditionRes
 import com.farm.farmus_application.model.favorite.FavoriteFarmRes
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -74,5 +78,14 @@ interface FarmApiClient {
 
     @GET("/farm/myfarm")
     suspend fun getMyFarm():Response<MyFarmRes>
+
+    @POST("/farm/unavailableDate")
+    suspend fun postUnavailableDate(@Body params : UnavailableDateAdditionReq) : Response<UnavailaleDateAdditionRes>
+
+    @PUT("/farm/unavailableDate/delete/{farmDateID}")
+    suspend fun putDeleteUnavailableDate(@Path("farmDateID")farmDateID : Int) : Response<DeleteDateRes>
+
+    @GET("/farm/unavailableDate/{farmId}")
+    suspend fun getUnavailableDate(@Path("farmId")farmId : Int) : Response<RetrieveDateRes>
 
 }

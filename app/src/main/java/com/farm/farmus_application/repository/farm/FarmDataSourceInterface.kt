@@ -8,6 +8,10 @@ import com.farm.farmus_application.model.farm.phone.PhoneNumberRes
 import com.farm.farmus_application.model.farm.postings.PostingsRes
 import com.farm.farmus_application.model.farm.register.RegisterRes
 import com.farm.farmus_application.model.farm.search.SearchedRes
+import com.farm.farmus_application.model.farm.unavailableDate.DeleteDateRes
+import com.farm.farmus_application.model.farm.unavailableDate.RetrieveDateRes
+import com.farm.farmus_application.model.farm.unavailableDate.UnavailableDateAdditionReq
+import com.farm.farmus_application.model.farm.unavailableDate.UnavailaleDateAdditionRes
 import com.farm.farmus_application.model.favorite.FavoriteFarmRes
 import retrofit2.Response
 import java.io.File
@@ -57,5 +61,10 @@ interface FarmDataSourceInterface {
     suspend fun getMyFarm(): Response<MyFarmRes>
   
     suspend fun getFavoriteFarmList(email: String): Response<FavoriteFarmRes>
+
+    suspend fun postUnavailableDate(params : UnavailableDateAdditionReq) : Response<UnavailaleDateAdditionRes>
+
+    suspend fun putDeleteUnavailableDate(farmDateID : Int) : Response<DeleteDateRes>
+    suspend fun getUnavailableDate(farmId : Int) : Response<RetrieveDateRes>
 
 }
