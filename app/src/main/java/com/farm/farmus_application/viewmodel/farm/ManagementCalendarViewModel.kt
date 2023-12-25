@@ -90,6 +90,7 @@ class ManagementCalendarViewModel @Inject constructor(
                 response.body()?.let {
                     if (it.isSuccess) {
                         _unavailableDateInfoList.postValue(it.result)
+
                         val unavailableDatesForCalendar = it.result.flatMap { dateInfo->
                             val startDate = dateInfo.getStartDate()
                             val endDate = dateInfo.getEndDate()
@@ -100,9 +101,11 @@ class ManagementCalendarViewModel @Inject constructor(
 
                             while (!startCalendar.after(endCalendar)) {
                                 dates.add(
-                                    CalendarDay.from(startCalendar.get(java.util.Calendar.YEAR),
-                                    startCalendar.get(java.util.Calendar.MONTH) + 1,
-                                    startCalendar.get(java.util.Calendar.DAY_OF_MONTH))
+                                    CalendarDay.from(
+                                        startCalendar.get(java.util.Calendar.YEAR),
+                                        startCalendar.get(java.util.Calendar.MONTH) + 1, // 월(month) 값 조정
+                                        startCalendar.get(java.util.Calendar.DAY_OF_MONTH)
+                                    )
                                 )
                                 startCalendar.add(java.util.Calendar.DAY_OF_MONTH, 1)
                             }

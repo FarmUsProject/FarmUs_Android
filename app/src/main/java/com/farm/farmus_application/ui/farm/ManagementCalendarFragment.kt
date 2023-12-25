@@ -2,7 +2,6 @@ package com.farm.farmus_application.ui.farm
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,16 +12,15 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.farm.farmus_application.R
 import com.farm.farmus_application.databinding.FragmentManagementCalendarBinding
-import com.farm.farmus_application.model.reserve.unbookable.UnBookableResult
 import com.farm.farmus_application.ui.farm.adapter.ManagementRVAdapter
 import com.farm.farmus_application.ui.farm.adapter.OnDeleteClickListener
-import com.farm.farmus_application.viewmodel.calendar.CalendarViewModel
 import com.farm.farmus_application.viewmodel.farm.ManagementCalendarViewModel
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
+import java.util.TimeZone
 
 @AndroidEntryPoint
 class ManagementCalendarFragment : Fragment(), OnDeleteClickListener {
@@ -107,6 +105,7 @@ class ManagementCalendarFragment : Fragment(), OnDeleteClickListener {
         binding.managementCalendarAdd.setOnClickListener {
             if (binding.managementCalendarAdd.isSelected) {
                 val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+                dateFormat.timeZone = TimeZone.getTimeZone("UTC")
 
                 // CalendarDay를 Calendar로 변환
                 val startCalendar = Calendar.getInstance().apply {
