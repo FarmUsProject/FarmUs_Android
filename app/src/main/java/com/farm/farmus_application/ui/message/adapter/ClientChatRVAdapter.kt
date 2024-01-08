@@ -13,7 +13,7 @@ import com.farm.farmus_application.utilities.JWTUtils
 
 // TODO : chatMessages List를 어떻게 받는 가에 따라서 파라미터로 처리가 안될 수도 있음
 // TODO : 구현시 나의 채팅 상대방 프로필 이미지를 끌어오는 방법이 필요함
-class ClientChatRVAdapter(private val chatMessages: List<ChatMessage>) :
+class ClientChatRVAdapter(private val chatMessages: ArrayList<ChatMessage>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val jwtToken = UserPrefsStorage.accessToken
@@ -82,6 +82,11 @@ class ClientChatRVAdapter(private val chatMessages: List<ChatMessage>) :
             ViewType.VIEW_TYPE_RECEIVED -> (holder as ReceivedMessageViewHolder).setData(chatMessage)
 //            ViewType.VIEW_TYPE_DAY -> (holder as DayViewHolder).setData(chatMessage)
         }
+    }
+
+    fun addMessage(item: ChatMessage) {
+        chatMessages.add(item)
+        notifyDataSetChanged()
     }
 
     class SentMessageViewHolder(private val binding: ItemContainerSentMessageBinding) :

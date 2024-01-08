@@ -20,7 +20,8 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
     
-    private const val baseUrl = "http://118.67.135.247:80/"
+//    private const val baseUrl = "http://118.67.135.247:80/"
+    const val baseUrl = "https://www.farmus.kro.kr/"
     private val jwtToken = UserPrefsStorage.accessToken ?: ""
 
     @Provides
